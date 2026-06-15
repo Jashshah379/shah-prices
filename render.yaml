@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: shah-prices
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --timeout 120 --workers 1 server:app
+    plan: free
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.4
